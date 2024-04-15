@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Juan's Rock, Paper, Scissors</title>
+    <link rel="stylesheet" href="RPS.css">
+        
+</head>
+
+<body>
+    <div id="juanGame">
+        <h1>Lets Play!!</h1>
+        <h3>Rock, Paper, Scissors</h3>
+        <p>Please select your move:</p>
+
+    <button class="button" id="Rock">✊</button>
+    <button class="button" id="Paper">✋</button>
+    <button class="button" id="Scissors">✌️</button>
+
+    <h3>Your Options: <span id="user-option"></span></h3>
+    <h3>Computer options: <span id="computer-option"></span></h3>
+
+    <p id= "Result"></p>
+    <br>
+    
+    <script>
+    //getting the information from buttons using DOM
+        const rockBtn = document.getElementById("Rock");
+        const papperBtn = document.getElementById("Paper");
+        const scissorsBtn = document.getElementById("Scissors");
+        const result = document.getElementById("Result");
+
+    // getting the spans
+        const userOptionSpan = document.getElementById("user-option");
+        const cpuOptionSpan = document.getElementById("computer-option");
+        
+        //adding the event listener to the bottons 
+        rockBtn.addEventListener("click",function() {
+            play("Rock");
+        });
+        
+        papperBtn.addEventListener("click",function() {
+            play("Paper");
+        });
+        
+        scissorsBtn.addEventListener("click",function() {
+            play("Scissors");
+        });
+        
+        // funtion for the game 
+        function play(playerChoice){
+            const choices = ["Rock", "Paper","Scissors"];
+            const aiChoices= choices[Math.floor(Math.random() * choices.length)];
+
+            // Set user Options
+            userOptionSpan.innerHTML = playerChoice;
+
+            // Set computer options
+            cpuOptionSpan.innerHTML = aiChoices;
+        
+            // first check if its a tie
+            if (playerChoice === aiChoices){
+                result.textContent = "It is a tie!!";
+            }else if(
+                (playerChoice === "Rock" && aiChoices === "Scissors") ||
+                (playerChoice === "Paper" && aiChoices === "Rock") ||
+                (playerChoice === "Scissors" && aiChoices === "Paper")
+            ){
+                result.textContent = "You win!!";
+            }else{
+                result.textContent = "You lose!!";
+            }
+        }
+        
+        </script>
+</div>
+
+</body>
+
+</html>
