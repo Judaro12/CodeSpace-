@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPS</title>
+    <style>
+        .options {
+            display: flex;
+            justify-content: center;
+
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Buttons -->
+    <div class="options">
+        <button id="Rock">Rock</button>
+        <button id="Paper">Paper</button>
+        <button id="Scissors">Scissors</button>
+    </div>
+    <br>
+    <!-- Info -->
+    <h2>Your Options: <span id="user-option"></span></h2>
+    <h2>Computer options: <span id="computer-option"></span></h2>
+    <h2>Result: <span id="result"></span></h2>
+
+    <script>
+        // Get the buttons
+         const rockBtn = document.getElementById("Rock");
+         const paperBtn = document.getElementById("Paper");
+         const scissorsBtn = document.getElementById("Scissors");
+
+        //  get the spans
+        const userOptionSpan = document.getElementById("user-option");
+        const cpuOptionSpan = document.getElementById("computer-option");
+        const resultSpan = document.getElementById("result");
+
+        // Defines the options
+        const options = ["Rock", "Paper", "Scissors"];
+
+        // add click event to the bottons 
+        rockBtn.addEventListener("click", function() {
+            playGame(options[0]);
+        });
+        paperBtn.addEventListener("click", function() {
+            playGame(options[1]);
+        });
+        scissorsBtn.addEventListener("click", function() {
+            playGame(options[2]);
+        });
+
+        // Play the game function
+        function playGame(userOption) {
+            // Get Computer options
+            const cpuOption = options[Math.floor(Math.random() * options.length)];
+
+            // Set user Options
+            userOptionSpan.innerHTML = userOption;
+
+            // Set computer options
+            cpuOptionSpan.innerHTML = cpuOption;
+
+            // compare the optios
+            //a draw
+            if (userOption === cpuOption) {
+                resultSpan.innerHTML = "It's a tie!!"
+            }
+            
+            // The player wins
+            // Rock Vs Scissors
+            else if (userOption === "Rock" && cpuOption === "Scissors") {
+                resultSpan.innerHTML = "You win!";
+            }
+
+            // Paper Vs Rock
+            else if (userOption === "Paper" && cpuOption === "Rock") {
+                resultSpan.innerHTML = "You win!";
+            }
+
+            // Scissors Vs Paper
+            else if (userOption === "Scissors" && cpuOption === "Paper") {
+                resultSpan.innerHTML = "You win!";
+            }
+
+            //other wise
+
+            else {
+                resultSpan.innerHTML = "You Lose!"
+            }
+
+        }
+    </script>
+</body>
+</html>

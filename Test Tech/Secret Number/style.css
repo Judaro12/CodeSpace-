@@ -1,0 +1,49 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+
+}
+
+.display {
+    display: flex;
+    flex-direction: column;
+}
+
+.display input {
+    
+    border: none; /* Remove borders */
+    margin: 0; /* Remove margins */
+    text-align: center; /* Center the text */
+}
+
+.display input:not(:last-child) {
+    border-bottom: 1px solid #ccc; /* Add a border between inputs, but not after the last one */
+}
+
+/* Optional: If you want to round the borders of the first and last input */
+.display input:first-child {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.display input:last-child {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+
+
+
+.buttons form input{
+    margin-top: 10px ;
+    border: 10;
+    outline: 10;
+    width: 60px;
+    height: 70px;
+    font-size: 20px;
+    border-radius: 10px;
+
+     
+}
